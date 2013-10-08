@@ -4,5 +4,18 @@
 }
 
 <h2>FizzBuzz</h2>
-<p>@ViewBag.Output</p>
+<div id="FizzBuzz">
+    Please select a value
+</div>
 
+@using (Ajax.BeginForm("GetFizzBuzz", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get", UpdateTargetId = "FizzBuzz" }))
+{
+    <input type="text" name="value" />
+    <input type="submit" value="AjaxFizzIt" />
+}
+
+@using (Html.BeginForm("GetFizzBuzz", "FizzBuzz", FormMethod.Get))
+{
+    <input type="text" name="value" />
+    <input type="submit" value="NormalFizzIt" />
+}
